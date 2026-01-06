@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>South Sound Resource Network | 2026 Community Hub</title>
+    <title>South Sound Resource Network | Tacoma, WA</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -17,6 +17,11 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Open Sans', sans-serif; margin: 0; background: var(--warm-cream); color: #333; line-height: 1.8; }
 
+        /* The Active Indicator (No hard-coded date) */
+        .live-banner { background: var(--navy); color: white; padding: 10px; text-align: center; font-weight: 600; font-size: 0.85rem; letter-spacing: 1px; }
+        .dot { height: 10px; width: 10px; background-color: var(--live-green); border-radius: 50%; display: inline-block; margin-right: 8px; animation: blink 1.5s infinite; }
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+
         header {
             background: rgba(255,255,255,0.98); padding: 15px 5%; display: flex; 
             justify-content: space-between; align-items: center; border-bottom: 4px solid var(--forest);
@@ -26,7 +31,8 @@
         .logo-img { height: 60px; border-radius: 50%; border: 2px solid var(--forest); }
         .brand-text { font-family: 'Montserrat'; font-weight: 800; color: var(--navy); line-height: 1; }
 
-        nav a { color: var(--navy); text-decoration: none; margin-left: 25px; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        nav a { color: var(--navy); text-decoration: none; margin-left: 25px; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+        nav a:hover { color: var(--teal); }
 
         .hero {
             background: linear-gradient(rgba(26, 54, 93, 0.75), rgba(45, 90, 39, 0.75)), 
@@ -38,24 +44,24 @@
         .white-bg { background: white; }
         .centered { text-align: center; max-width: 800px; margin: 0 auto; }
 
-        /* The New "Alive" Roadmap */
-        .timeline { position: relative; max-width: 900px; margin: 50px auto; padding-left: 40px; }
+        /* Cards & Grid */
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin-top: 50px; }
+        .card { background: white; padding: 40px; border-radius: 20px; border-bottom: 6px solid var(--teal); box-shadow: 0 10px 40px rgba(0,0,0,0.04); transition: 0.4s; }
+        .card:hover { transform: translateY(-10px); }
+
+        /* Impact Section */
+        .impact-highlight { background: var(--navy); color: white; border-radius: 30px; padding: 40px; margin-top: 20px; display: flex; align-items: center; gap: 30px; }
+        .stat-circle { background: var(--teal); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; border: 3px solid white; flex-shrink: 0; }
+
+        /* FAQ */
+        .faq-item { background: white; margin-bottom: 15px; padding: 25px; border-radius: 12px; border: 1px solid #eee; text-align: left; }
+        .faq-q { font-weight: 800; color: var(--navy); display: block; margin-bottom: 5px; font-family: 'Montserrat'; }
+
+        /* Timeline */
+        .timeline { position: relative; max-width: 800px; margin: 50px auto; padding-left: 40px; text-align: left; }
         .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: #e2e8f0; }
-
-        .timeline-item { position: relative; margin-bottom: 60px; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: 0.3s; }
-        .timeline-item:hover { transform: translateX(10px); border-left: 5px solid var(--teal); }
-        .timeline-item::before { content: ''; position: absolute; left: -48px; top: 35px; width: 20px; height: 20px; background: var(--forest); border: 4px solid white; border-radius: 50%; }
-
-        .status-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-bottom: 10px; }
-        .status-active { background: #E6FFFA; color: var(--teal); border: 1px solid var(--teal); }
-        .status-upcoming { background: #FEEBC8; color: #9C4221; border: 1px solid #9C4221; }
-
-        .vision-date { font-family: 'Montserrat'; font-weight: 800; color: var(--navy); font-size: 1.1rem; }
-
-        /* Live Indicator */
-        .live-banner { background: var(--navy); color: white; padding: 15px; text-align: center; font-weight: 600; font-size: 0.9rem; }
-        .dot { height: 10px; width: 10px; background-color: var(--live-green); border-radius: 50%; display: inline-block; margin-right: 8px; animation: blink 1.5s infinite; }
-        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+        .timeline-item { position: relative; margin-bottom: 40px; }
+        .timeline-item::before { content: ''; position: absolute; left: -48px; top: 10px; width: 15px; height: 15px; background: var(--forest); border-radius: 50%; border: 3px solid white; }
 
         footer { background: #111; color: white; padding: 80px 10%; text-align: center; }
         .contact-box { background: rgba(255,255,255,0.05); padding: 40px; border-radius: 20px; display: inline-block; border: 1px solid rgba(255,255,255,0.1); }
@@ -64,7 +70,7 @@
 <body>
 
     <div class="live-banner">
-        <span class="dot"></span> Serving Tacoma & Pierce County Today: January 2026
+        <span class="dot"></span> ACTIVE COORDINATION IN EFFECT: SERVING PIERCE COUNTY
     </div>
 
     <header>
@@ -73,59 +79,73 @@
             <div class="brand-text">SOUTH SOUND<br><span style="color: var(--forest); font-size: 0.8rem;">RESOURCE NETWORK</span></div>
         </div>
         <nav>
-            <a href="#mission">Our Heart</a>
+            <a href="#mission">Mission</a>
             <a href="#resources">Resources</a>
+            <a href="#impact">Impact</a>
+            <a href="#faq">FAQ</a>
             <a href="#future">2026 Vision</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
 
     <div class="hero">
-        <h1 style="font-family: 'Montserrat'; font-size: 3.5rem;">Tacoma's Link to<br>Local Support.</h1>
-        <p style="font-size: 1.3rem; margin-top: 20px; opacity: 0.9; max-width: 700px; margin-left: auto; margin-right: auto;">Connecting residents with the regional programs they need to thrive in 2026.</p>
+        <h1 style="font-family: 'Montserrat'; font-size: 3.5rem;">Tacoma's Link to<br>Community Support.</h1>
+        <p style="font-size: 1.3rem; margin-top: 20px; opacity: 0.9;">Connecting residents with the regional programs they need to thrive.</p>
     </div>
 
     <section id="mission" class="section centered">
-        <h2 style="font-family: 'Montserrat'; color: var(--navy); font-size: 2.5rem;">Why We Exist</h2>
-        <p style="font-size: 1.2rem;">Tacoma is a city of incredible people, but help can be hard to find in disconnected systems. <strong>South Sound Resource Network</strong> bridges the gap. We coordinate the assets so you can focus on your future.</p>
+        <h2 style="font-family: 'Montserrat'; color: var(--navy); font-size: 2.2rem;">Why We Exist</h2>
+        <p style="font-size: 1.1rem;">Tacoma is a city of incredible people, but help can be hard to find in disconnected systems. <strong>South Sound Resource Network</strong> bridges the gap. We coordinate the assets so you can focus on your future.</p>
     </section>
 
-    <section id="future" class="section white-bg">
+    <section id="resources" class="section white-bg">
         <div class="centered">
-            <h2 style="font-family: 'Montserrat'; color: var(--navy); font-size: 2.5rem;">The Roadmap Forward</h2>
-            <p>Our commitment to the South Sound is active and evolving. Here is what we are achieving this year.</p>
+            <h2 style="font-family: 'Montserrat'; color: var(--navy);">Our Resource Pillars</h2>
+            <p>Providing verified access to vital services across the region.</p>
         </div>
-        
+        <div class="card-grid">
+            <div class="card"><h3>Housing Stability</h3><p>Connecting families with regional housing program support and emergency coordination.</p></div>
+            <div class="card"><h3>Program Support</h3><p>Assisting local nonprofits with administrative and operational logistics.</p></div>
+            <div class="card"><h3>Advocacy</h3><p>Giving a voice to South Sound residents by bridging the gap to policymakers.</p></div>
+        </div>
+    </section>
+
+    <section id="impact" class="section">
+        <div class="centered">
+            <h2 style="font-family: 'Montserrat'; color: var(--navy);">Dedication in Action</h2>
+            <p>Our network is built on the hard work of dedicated community members.</p>
+        </div>
+        <div class="impact-highlight">
+            <div class="stat-circle">210+</div>
+            <div><h3 style="margin:0; color: var(--teal);">Morgan P.</h3><p style="margin:5px 0 0 0; font-size: 0.9rem;">210 hours of mapping community assets across Tacoma.</p></div>
+        </div>
+        <div class="impact-highlight" style="background: white; color: var(--navy); border: 1px solid #eee;">
+            <div class="stat-circle" style="background: var(--navy);">160+</div>
+            <div><h3 style="margin:0;">Jordan D.</h3><p style="margin:5px 0 0 0; font-size: 0.9rem;">160 hours of youth outreach and mentorship coordination.</p></div>
+        </div>
+    </section>
+
+    <section id="faq" class="section white-bg centered">
+        <h2 style="font-family: 'Montserrat'; color: var(--navy);">Common Questions</h2>
+        <div style="margin-top: 40px;">
+            <div class="faq-item"><span class="faq-q">Is this a government agency?</span><p>No, we are an independent coordination network partnering with both public and private sectors.</p></div>
+            <div class="faq-item"><span class="faq-q">How are volunteer hours verified?</span><p>Hours are tracked via our portal and verified by Program Director Branden Miller.</p></div>
+        </div>
+    </section>
+
+    <section id="future" class="section centered">
+        <h2 style="font-family: 'Montserrat'; color: var(--navy);">The 2026 Roadmap</h2>
         <div class="timeline">
-            <div class="timeline-item">
-                <div class="status-badge status-active">In Progress</div>
-                <div class="vision-date">Winter 2026</div>
-                <h3>Digital Resource Mapping</h3>
-                <p>We are currently digitizing our local asset maps to provide an interactive, real-time directory for Pierce County residents. Phase 1 deployment covers Tacoma and Lakewood.</p>
-            </div>
-
-            <div class="timeline-item">
-                <div class="status-badge status-upcoming">Upcoming</div>
-                <div class="vision-date">Spring 2026</div>
-                <h3>Spring Community Partner Summit</h3>
-                <p>Gathering regional nonprofits in Downtown Tacoma to synchronize 2026 service goals, reduce overlap, and share vital community data.</p>
-            </div>
-
-            <div class="timeline-item">
-                <div class="status-badge status-upcoming">Planning</div>
-                <div class="vision-date">Fall 2026</div>
-                <h3>Regional Advocacy Expansion</h3>
-                <p>Establishing a permanent volunteer advocacy council to represent South Sound interests at the state level during the next legislative session.</p>
-            </div>
+            <div class="timeline-item"><strong>Winter 2026:</strong> Digital Resource Map Launch for Pierce County.</div>
+            <div class="timeline-item"><strong>Spring 2026:</strong> Community Partner Summit in Downtown Tacoma.</div>
+            <div class="timeline-item"><strong>Fall 2026:</strong> Expansion of the Regional Advocacy Council.</div>
         </div>
     </section>
 
     <footer id="contact">
         <div class="contact-box">
             <h3 style="margin-top:0; color: var(--teal); font-family: 'Montserrat';">Connect with Branden</h3>
-            <p>Program Director</p>
-            <p><strong>Email:</strong> Southsoundresourcenetwork@gmail.com</p>
-            <p><strong>Phone:</strong> (206) 659-1481</p>
+            <p>Email: Southsoundresourcenetwork@gmail.com | Phone: (206) 659-1481</p>
         </div>
         <p style="margin-top: 50px; opacity: 0.4; font-size: 0.8rem;">&copy; 2026 South Sound Resource Network | Tacoma, WA</p>
     </footer>
