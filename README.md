@@ -1,2 +1,2 @@
 # southsoundresourcenetwork.github.io
-Community resource coordination and program support for the South Sound region.
+ Community based nonprofit connecting people to resources across the South Sound.
