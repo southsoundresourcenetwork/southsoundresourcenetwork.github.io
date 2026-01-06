@@ -7,159 +7,188 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --forest-green: #2D5A27;
-            --glacier-blue: #3A8FB7;
-            --mist-gray: #F4F7F6;
-            --slate: #333333;
+            --navy: #1A365D;    /* Matches your logo text */
+            --forest: #2D5A27;  /* Matches your logo trees */
+            --teal: #1B7A8C;    /* Matches your logo waves */
+            --mist: #F4F7F9;
         }
 
         body {
             font-family: 'Open Sans', sans-serif;
             margin: 0;
-            color: var(--slate);
-            background-color: var(--mist-gray);
-            line-height: 1.6;
+            background-color: var(--mist);
+            color: #333;
         }
 
         header {
-            background-color: var(--forest-green);
-            color: white;
-            padding: 1rem 5%;
-            position: sticky;
-            top: 0;
+            background-color: white;
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 4px solid var(--forest);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
             z-index: 1000;
         }
 
-        .logo-text {
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            height: 65px;
+            width: auto;
+            /* This ensures your logo is the star of the header */
+        }
+
+        .brand-text {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.2rem;
-            text-transform: uppercase;
+            color: var(--navy);
+            font-size: 1.4rem;
+            line-height: 1;
         }
 
         nav a {
-            color: white;
+            color: var(--navy);
             text-decoration: none;
             margin-left: 20px;
-            font-weight: 600;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
         }
 
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1502472545331-507987820615?auto=format&fit=crop&q=80&w=1500');
+            background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(26, 54, 93, 0.8)), 
+                        url('https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=2000');
             background-size: cover;
             background-position: center;
-            height: 50vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             color: white;
             text-align: center;
-            padding: 0 20px;
+            padding: 100px 20px;
         }
 
-        section {
-            padding: 60px 10%;
-            max-width: 1200px;
-            margin: auto;
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.2rem;
+            margin: 0;
+            letter-spacing: -1px;
         }
 
-        .card-container {
+        .section-padding {
+            padding: 80px 10%;
+        }
+
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
+            gap: 30px;
+            margin-top: 40px;
         }
 
         .card {
             background: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-top: 5px solid var(--glacier-blue);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+            border-top: 6px solid var(--teal);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card h3 {
+            color: var(--forest);
+            font-family: 'Montserrat';
+            margin-top: 0;
+        }
+
+        .impact-stat {
+            background: var(--navy);
+            color: white;
+            padding: 60px 10%;
+            text-align: center;
         }
 
         footer {
-            background: var(--slate);
+            background: #222;
             color: white;
+            padding: 60px 10%;
             text-align: center;
-            padding: 40px 20px;
         }
 
-        .btn {
-            background-color: var(--glacier-blue);
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
+        .contact-card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 8px;
             display: inline-block;
             margin-top: 20px;
+            text-align: left;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-text">South Sound Resource Network</div>
+        <div class="logo-area">
+            <img src="pfp.png" alt="South Sound Resource Network" class="logo-img">
+            <div class="brand-text">SOUTH SOUND<br><span style="color: var(--forest); font-size: 1rem;">RESOURCE NETWORK</span></div>
+        </div>
         <nav>
-            <a href="#home">Home</a>
-            <a href="#resources">Resources</a>
-            <a href="#volunteers">Volunteers</a>
-            <a href="#support">Support</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
         </nav>
     </header>
 
-    <div id="home" class="hero">
-        <h1>South Sound Resource Network</h1>
-        <p>Connecting Tacoma to Vital Community Programs</p>
+    <div class="hero">
+        <h1>Building a Stronger Tacoma</h1>
+        <p style="font-size: 1.2rem; margin-top: 15px; opacity: 0.9;">Professional Coordination & Community Program Support</p>
     </div>
 
-    <section>
-        <h2>A Message from the Founder</h2>
-        <p>At the <strong>South Sound Resource Network</strong>, we believe that a stronger Tacoma starts with better coordination. I founded this network to bridge the gap between community needs and the programs designed to meet them. Whether we are providing general program support or coordinating vital local resources, our goal is to ensure that no resident of the South Sound is left without a path forward.</p>
+    <section id="about" class="section-padding">
+        <h2 style="font-family: 'Montserrat'; color: var(--navy); font-size: 2.2rem; text-align: center;">A Message from the Founder</h2>
+        <div style="max-width: 800px; margin: 30px auto; font-size: 1.1rem; line-height: 1.8; text-align: center;">
+            <p>At the <strong>South Sound Resource Network</strong>, we believe that a stronger Tacoma starts with better coordination. I founded this network to bridge the gap between community needs and the programs designed to meet them. Whether we are providing general program support or coordinating vital local resources, our goal is to ensure that no resident of the South Sound is left without a path forward.</p>
+        </div>
     </section>
 
-    <section id="resources" style="background: #fff;">
-        <h2>Our Resources</h2>
-        <div class="card-container">
+    <div class="impact-stat">
+        <h2 style="font-family: 'Montserrat'; margin: 0;">Over 500+ Service Hours Coordinated</h2>
+        <p style="opacity: 0.8;">Dedicated to regional resource mapping and program facilitation.</p>
+    </div>
+
+    <section id="services" class="section-padding">
+        <h2 style="font-family: 'Montserrat'; color: var(--navy); text-align: center;">Our Focus Areas</h2>
+        <div class="grid">
             <div class="card">
                 <h3>Resource Mapping</h3>
-                <p>We identify and organize local assets to make them more accessible to the public.</p>
+                <p>We identify and organize local assets to make them more accessible to the public through verified directories.</p>
             </div>
             <div class="card">
                 <h3>Program Support</h3>
-                <p>Hands-on assistance to local initiatives to ensure they run effectively.</p>
+                <p>Providing hands-on assistance to local initiatives to ensure they run smoothly and effectively.</p>
+            </div>
+            <div class="card" style="border-top-color: var(--forest);">
+                <h3>Volunteer Coordination</h3>
+                <p>Managing service hours for dedicated individuals like Jordan D. (160 hrs) and Morgan P. (210 hrs).</p>
             </div>
         </div>
     </section>
 
-    <section id="volunteers">
-        <h2>Volunteer Impact</h2>
-        <div class="card-container">
-            <div class="card">
-                <p><strong>Jordan D.</strong></p>
-                <p>Completed 160 hours dedicated to coordinating local community resources.</p>
-            </div>
-            <div class="card">
-                <p><strong>Taylor B.</strong></p>
-                <p>Fulfilled 95 hours of community involvement focusing on general program support.</p>
-            </div>
+    <footer id="contact">
+        <h2 style="font-family: 'Montserrat';">Contact Our Team</h2>
+        <div class="contact-card">
+            <p><strong>Branden Miller</strong><br>Program Director</p>
+            <p>Email: Southsoundresourcenetwork@gmail.com</p>
+            <p>Phone: (206) 659-1481</p>
         </div>
-    </section>
-
-    <section id="support">
-        <h2>Contact Us</h2>
-        <p>For questions regarding partnerships or service hour verification, please contact our administrative office.</p>
-        <p><strong>Branden Miller</strong>, Program Director<br>
-        Email: Southsoundresourcenetwork@gmail.com<br>
-        Phone: (206) 659-1481</p>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 South Sound Resource Network. Tacoma, WA.</p>
+        <p style="margin-top: 40px; font-size: 0.8rem; opacity: 0.5;">&copy; 2026 South Sound Resource Network. Tacoma, WA.</p>
     </footer>
 
 </body>
